@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- The Chrome team has recently implemented a feature that tells the browser to launch the page fullscreen when the user has added it to the home screen. -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="icon" href="./favicon.ico">
+
+	<!-- DateTimePicker -->
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./bower_components/moment/min/moment.min.js"></script>
+	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
+	/>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/barIcon.css">
+	<link rel="stylesheet" type="text/css" href="./css/navBar.css">
+	<link rel="stylesheet" type="text/css" href="./css/switch.css">
+	<link rel="stylesheet" type="text/css" href="./css/countdown.css">
+	<link rel="stylesheet" type="text/css" href="./css/toast.css">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+
+	<title>Time is Running Out</title>
+</head>
+
+<body>
+
+	<div id="mySideNav" class="sidenav">
+		<div>Full</div>
+		<div>Second</div>
+		<div>Minute</div>
+		<div>Hour</div>
+		<div>Day</div>
+		<div>Month</div>
+		<div>Year</div>
+		<div class="hiResSwitch">
+			<label title="Use Hi-Resolution Backgrounds" class="switch">
+				<input type="checkbox"></input>
+				<div class="slider round"></div>
+			</label>
+		</div>
+	</div>
+
+	<div class="bgimg">
+
+		<div class="topleft">
+			<div id="sideBarBtnContainer">
+				<div id="sideBarBtn" class="barIcon">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<div class="bar3"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class='topright'>
+			<div id="photoAttribution">
+				Photo by Unknown / <a href="https://www.w3schools.com/howto/howto_css_coming_soon.asp">w3schools</a>
+			</div>
+			<label id="autoChangeBgBtn" title="Toggle Auto Change Background" class="switch">
+				<input type="checkbox"></input>
+				<div class="slider round"></div>
+			</label>
+			<div>
+				<i id="changeBgBtn" title="Change Background" class="fa fa-forward"></i>
+			</div>
+		</div>
+
+		<div class="middle">
+			<p id="timeisrunningout"><strong>Time Is Running Out</strong></p>
+			<hr>
+			<p id="time"></p>
+			<div class="datetimepickerContainer">
+				<input type='text' id='datetimepicker' placeholder="End Time Is..." readonly/>
+			</div>
+		</div>
+
+		<div class="bottomleft">
+			<p>We are what we repeatedly do. Excellence, then, is not an act, but a habit. <small> -- Aristotle</small></p>
+		</div>
+	</div>
+	<div id="toast"></div>
+
+	<script src="./js/index.js"></script>
+	<script src="./js/countdown.js"></script>
+	<script src="./js/changeBg.js"></script>
+
+</body>
+
+</html>

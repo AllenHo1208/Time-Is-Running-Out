@@ -1,0 +1,117 @@
+.bgimg {
+	background-color: rgba(0, 0, 0, 0.9);
+    background-image: url('../images/natural.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+	font-size: 1.5em;
+	transition-timing-function: ease-in-out; /* linear*/
+	transition: 1.5s;
+}
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 0.1vw;
+}
+
+.topright {
+    position: absolute;
+	top: 0;
+	right:0;
+	transition: 0.3s;
+	text-align: right;
+}
+
+#photoAttribution {
+	color: rgba(255, 255, 255, 0.9);
+	padding: 10px;
+	font-size: 0.6em;
+}
+
+#photoAttribution a {
+	color : inherit;
+}
+
+#autoChangeBgBtn {
+	z-index: 2;
+	margin-right:10px;
+}
+
+#changeBgBtn {
+	z-index: 2;
+	cursor : pointer;
+	color: rgba(255, 255, 255, 0.9);
+   	font-size: 1.5em;
+	margin-right: 18px;
+	text-shadow : 0px 0px 6px #2196F3;
+}
+
+#changeBgBtn:hover {
+	color: white;
+}	
+
+#changeBgBtn:active {
+	color: #2196F3;
+}
+
+.middle {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+	z-index: 1;
+}
+
+#timeisrunningout {
+	font-size: 4.2vw;
+	text-shadow : 0 1px 5px rgba(0,0,0,.1);
+}
+#time {
+	font-size: 4.2vw;
+	height : 6vw;
+	text-shadow : 0 1px 5px rgba(0,0,0,.1);
+}
+
+.datetimepickerContainer {
+	color: black;
+}
+
+#datetimepicker {
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	border: 0;
+	text-align: center;
+	font-size: 3.6vw;
+	text-shadow : 0 1px 5px rgba(0,0,0,.1);
+}
+
+hr {
+    width: 80%;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+   color: white;
+   text-shadow : 0 1px 5px rgba(0,0,0,.1);
+   text-align: center;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: white;
+   text-shadow : 0 1px 5px rgba(0,0,0,.1);
+   text-align: center;
+   opacity:  1;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    padding: 10px 16px 0px 16px;
+	margin: 0.1vw;
+	background-color: rgba(1, 1, 1, 0.6);
+	border-radius: 10px;
+	transition: 0.3s;
+	font-size: 3vw;
+}

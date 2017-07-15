@@ -1,0 +1,17 @@
+{
+  "name": "timeisrunningout",
+  "authors": [
+    "Oh Allen <allenho1208@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "bower_components"
+  ],
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -6,7 +6,7 @@ var oUnsplashPhotoSearcher = (function () {
 
 	function getPhotoSearchUrl(nPage) {
 		return 'https://api.unsplash.com/search/photos?' + fParam({
-			query: 'landscape',
+			query: 'trending',
 			per_page: 30, // by observation, maximum no. per_page == 30
 			page: nPage,
 			client_id: '<UNSPLASH_API_CLIENT_ID>'
@@ -46,11 +46,11 @@ var oUnsplashPhotoSearcher = (function () {
 					},
 					photographer: {
 						name: result.user.name,
-						profile: result.links.html
+						profile: result.links.html + '?utm_source=Time_Is_Running_Out&utm_medium=referral&utm_campaign=api-credit'
 					},
 					source: {
 						name: 'Unsplash',
-						url: 'https://unsplash.com/'
+						url: 'https://unsplash.com/?utm_source=Time_Is_Running_Out&utm_medium=referral&utm_campaign=api-credit'
 					}
 				});
 			});

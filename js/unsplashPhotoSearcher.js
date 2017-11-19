@@ -1,20 +1,17 @@
 var request = require('request');
 var fParam = require('jquery-param');
 var oUnsplashPhotoSearcher = (function () {
-
-	var nPageSize = 1;
-
-	function getPhotoSearchUrl(nPage) {
+	function getPhotoSearchUrl(nWhichPage) {
 		return 'https://api.unsplash.com/search/photos?' + fParam({
 			query: 'trending',
 			per_page: 30, // by observation, maximum no. per_page == 30
-			page: nPage,
+			page: nWhichPage,
 			client_id: '<UNSPLASH_API_CLIENT_ID>'
 		});
 	}
-	function searchPhotos(nPage, fCallback) {
-		request.get(getPhotoSearchUrl(nPage), function (err, res, sJson) {
-			var pPhotos = []
+	function searchPhotos(nWhichPage, fCallback) {
+		request.get(getPhotoSearchUrl(nWhichPage), function (err, res, sJson) {
+			var pPhotos = [];
 			if (err) {
 				console.error('Encounter Error when searching photos from Unsplash.');
 				fCallback(pPhotos);
@@ -54,36 +51,20 @@ var oUnsplashPhotoSearcher = (function () {
 					}
 				});
 			});
-			nPageSize = Math.ceil(oJson.total / oJson.total_pages);
-			fCallback(pPhotos);
+			fCallback(pPhotos, oJson.total_pages);
 		});
 	}
 
-	var oRandomPage = (function () {
-		var myMax, myMin;
-		return {
-			generate: function () {
-				return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
-			},
-			set: function (max, min) {
-				myMax = max;
-				myMin = min;
-			}
-		}
-	})();
-
+	let m_nCurrentPage = 1, m_nTotalPages = 1;
 	return {
 		search: function (fCallback) {
-			searchPhotos(oRandomPage.generate(), fCallback);
-		},
-		initPageSize: function () {
-			searchPhotos(1, function (pPhotos) {
-				oRandomPage.set(nPageSize, 1);
+			searchPhotos(m_nCurrentPage % m_nTotalPages + 1, function (pPhotos, nTotalPages) {
+				m_nCurrentPage++;
+				m_nTotalPages = nTotalPages;
+				fCallback(pPhotos);
 			});
 		}
 	};
 })();
-
-oUnsplashPhotoSearcher.initPageSize();
 
 module.exports = oUnsplashPhotoSearcher;
